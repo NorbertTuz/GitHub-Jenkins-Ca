@@ -5,9 +5,11 @@ files:
     destination: /var/www/html/
   - source: /contact.html
     destination: /var/www/html
-  - source: /css
+  - source: /css/
     destination: /var/www/html/
   - source: /images/
+    destination: /var/www/html/
+   - source: /js/
     destination: /var/www/html/
     
     
