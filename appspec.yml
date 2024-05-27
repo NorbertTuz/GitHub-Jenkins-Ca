@@ -7,6 +7,8 @@ files:
     destination: /var/www/html
   - source: /why.html
     destination: /var/www/html
+  - source: /trainer.html
+    destination: /var/www/html
   - source: /css
     destination: /var/www/html/
   - source: /images/
