@@ -5,6 +5,9 @@ files:
     destination: /var/www/html/
   - source: /contact.html
     destination: /var/www/html
+     - source: /why.html
+    destination: /var/www/html
+    
     
  
 hooks:
