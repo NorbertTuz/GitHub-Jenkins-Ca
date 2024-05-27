@@ -5,8 +5,7 @@ files:
     destination: /var/www/html/
   - source: /contact.html
     destination: /var/www/html
-     - source: /trainer.html
-    destination: /var/www/html
+    
  
 hooks:
   BeforeInstall:
