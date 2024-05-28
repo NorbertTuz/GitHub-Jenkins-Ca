@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    triggers {
+        // Polls GitHub for changes in the pull requests
+        pollSCM('* * * * *') // Check every minute; adjust according to your needs triggers: The pollSCM('* * * * *') line tells Jenkins to poll the SCM (Source Code Management) for changes every minute. Adjust the cron syntax to fit your needs (e.g., H/5 * * * * for every 5 minutes).
+    }
+
+    stages { //stages: Define the stages of your pipeline. Common stages include Checkout, Build, Test, and Deploy.
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the PR branch
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                // Example build step, adjust according to your project
+                sh 'echo "Building..."'
+                sh 'mvn clean install' // Adjust for your build tool
+            }
+        }
+        stage('Test') {
+            steps {
+                // Example test step, adjust according to your project
+                sh 'echo "Running tests..."'
+                sh 'mvn test' // Adjust for your test tool
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Example deploy step, adjust according to your project
+                sh 'echo "Deploying..."'
+                // Add your deployment steps here
+            }
+        }
+    }
+
+    post { //post: Defines actions that occur after the pipeline stages complete. You can specify actions for always, success, and failure.
+        always {
+            // Actions that run at the end of the pipeline
+            echo 'Pipeline finished.'
+        }
+        success {
+            // Actions that run on success
+            echo 'Pipeline succeeded.'
+        }
+        failure {
+            // Actions that run on failure
+            echo 'Pipeline failed.'
+        }
+    }
+}
